@@ -1,4 +1,4 @@
-package com.ygdxd.resource.Resour;
+package com.ygdxd.resource.booleanResource;
 
 import org.springframework.hateoas.ResourceAssembler;
 
