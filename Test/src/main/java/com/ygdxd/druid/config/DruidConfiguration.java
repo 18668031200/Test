@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.apache.log4j.spi.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
@@ -23,6 +25,9 @@ import com.ygdxd.druid.multids.DynamicDataSource;
 @Configuration
 @EnableConfigurationProperties(DataSourceProperties.class)
 public class DruidConfiguration {
+	
+	private static final Logger log=org.slf4j.LoggerFactory.getLogger(DruidConfiguration.class);
+	
 	@Bean(name = "dataSource1", initMethod = "init", destroyMethod = "close")
 	public DataSource dataSource1(DataSourceProperties dataSourceProperties) throws SQLException {
 		DruidDataSource dataSource = new DruidDataSource();

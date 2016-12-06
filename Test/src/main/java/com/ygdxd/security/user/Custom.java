@@ -10,6 +10,10 @@ import lombok.Getter;
 
 public class Custom extends User{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6015643157509197157L;
 	@Getter private String id;
 	
 	public Custom(String id,String username,String password,Collection<? extends GrantedAuthority> authorities){

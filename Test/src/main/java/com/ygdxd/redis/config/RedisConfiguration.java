@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @EnableCaching
 public class RedisConfiguration {
 	//连接redis
+	@Bean
 	public JedisConnectionFactory redisConnectionFactory(){
 		JedisConnectionFactory jedisConnectionFactory=new JedisConnectionFactory();
 		//host地址
@@ -27,7 +28,7 @@ public class RedisConfiguration {
 		jedisConnectionFactory.afterPropertiesSet();
 		return jedisConnectionFactory;
 	}
-	
+	@Bean
 	public RedisTemplate<?,?> redisTemplate(JedisConnectionFactory jcf){
 		RedisTemplate<?, ?> template = new RedisTemplate<>();
 		Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
