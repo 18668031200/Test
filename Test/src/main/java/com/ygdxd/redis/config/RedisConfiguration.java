@@ -1,7 +1,10 @@
 package com.ygdxd.redis.config;
 
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
@@ -38,6 +41,20 @@ public class RedisConfiguration {
 		template.setValueSerializer(jackson2JsonRedisSerializer);
 		template.afterPropertiesSet();
 		return template;
+	}
+	
+	/**
+	 * 缂撳瓨绠＄悊鍣?
+	 * @param redisTemplate
+	 * @return
+	 */
+	@Bean
+	public CacheManager cacheManager(RedisTemplate<String, Object> redisTemplate) {
+		RedisCacheManager  cacheManager	=new RedisCacheManager(redisTemplate);
+	//璁剧疆杩囨湡鏃堕棿
+		cacheManager.setDefaultExpiration(10);
+	return cacheManager;
+
 	}
 
 }

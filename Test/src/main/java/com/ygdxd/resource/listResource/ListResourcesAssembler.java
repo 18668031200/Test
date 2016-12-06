@@ -11,7 +11,7 @@ import org.springframework.util.Assert;
 
 
 
-public class ListResourceAssembler<E> implements ResourceAssembler<List<E>, ListResources<Resource<E>>>{
+public class ListResourcesAssembler<E> implements ResourceAssembler<List<E>, ListResources<Resource<E>>>{
 
 	@Override
 	public ListResources<Resource<E>> toResource(List<E> entity) {
