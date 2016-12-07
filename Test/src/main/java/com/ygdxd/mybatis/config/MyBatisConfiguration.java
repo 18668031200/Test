@@ -2,8 +2,6 @@ package com.ygdxd.mybatis.config;
 
 import java.util.Properties;
 
-import javax.sql.DataSource;
-
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -16,6 +14,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
 import com.ygdxd.druid.config.DruidConfiguration;
 
@@ -25,7 +24,7 @@ import com.ygdxd.druid.config.DruidConfiguration;
 public class MyBatisConfiguration  implements TransactionManagementConfigurer{
 	
 	@Autowired
-	DataSource dataSource;
+	DruidDataSource dataSource;
 	
 	@Bean(name="SqlSessionFactory")
 	public SqlSessionFactory sqlSessionFactory() throws Exception{

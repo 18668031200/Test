@@ -33,9 +33,6 @@ public class User extends BaseEntity{
 	
 	public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
 	
 	private String userName;
 	
@@ -56,7 +53,8 @@ public class User extends BaseEntity{
 	
 	private String state;
 	
-	private Integer gender;
+	@Column
+	private int gender;
 	
 	private String telephone;
 	
