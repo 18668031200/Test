@@ -7,7 +7,7 @@ public class RegexValidator {
 	/**
 	 * 手机号
 	 */
-	public static final String MOBILE = "/^1[0-9]{10}$/";
+	public static final String MOBILE = "^1[0-9]{10}$";
 	
 	/**
 	 * 是否是手机格式

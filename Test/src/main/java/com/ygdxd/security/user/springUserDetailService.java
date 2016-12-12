@@ -18,7 +18,6 @@ public class springUserDetailService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		BCryptPasswordEncoder bcpe=new BCryptPasswordEncoder();
-		System.out.println(bcpe.encode("xiaoming"));
 		String[] roles=new String[]{"ADMIN:ALL"};
 		return new Custom("AAA", username, bcpe.encode("xiaoming"), AuthorityUtils.createAuthorityList(roles) );
 	}

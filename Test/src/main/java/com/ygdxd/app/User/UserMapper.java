@@ -9,13 +9,13 @@ import tk.mybatis.mapper.common.Mapper;
 
 public interface UserMapper extends Mapper<User>{
 	
-	@Select("<script>Select id,userName,type,gender,email,telephone,state,nike_name from user "
+	@Select("<script>Select id,user_name,type,gender,email,telephone,state,nike_name from user "
 			+ "Where id is not null "
 			+ "<if test=\"id!=null and id !='' \" >"
 			+ "AND id=#{id} "
 			+ "</if>"
 			+ "<if test=\"userName!=null and userName !='' \" >"
-			+ "AND userName=#{userName} "
+			+ "AND user_name=#{userName} "
 			+ "</if>"
 			+ "<if test=\"type!=null and type !='' \" >"
 			+ "AND type=#{type} "

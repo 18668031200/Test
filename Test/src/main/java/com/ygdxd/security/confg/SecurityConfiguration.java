@@ -56,11 +56,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		http.addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class);
 //		http.csrf().disable();
 //		http.authorizeRequests().anyRequest().denyAll();
-//		http.authorizeRequests().anyRequest().authenticated();
 		http 
         .authorizeRequests()  
            .antMatchers("/login.html","/login/failure").permitAll()    
-           .anyRequest().denyAll()
             .and()  
 //        .exceptionHandling()  
 //            .accessDeniedPage("/login?authorization_error=true")  

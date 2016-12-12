@@ -4,9 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,10 +11,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ygdxd.mybatis.BaseEntity;
+import com.ygdxd.mybatis.typeHanler.StringAraayTypeHandler;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import tk.mybatis.mapper.annotation.ColumnType;
 
 @Getter
 @Setter
@@ -60,6 +59,7 @@ public class User extends BaseEntity{
 	
 	private String email;
 	
+	private @JsonIgnore @ColumnType(typeHandler=StringAraayTypeHandler.class) String[] permissions;
 	
 	
 
