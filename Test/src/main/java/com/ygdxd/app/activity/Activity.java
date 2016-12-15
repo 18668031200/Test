@@ -8,11 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ygdxd.mybatis.BaseEntity;
+import com.ygdxd.mybatis.typeHanler.StringArrayTypeHandler;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import tk.mybatis.mapper.annotation.ColumnType;
 
 
 /**
@@ -43,9 +49,9 @@ public class Activity extends BaseEntity{
 	 */
 	private String type;
 	
-	private Date startTime;
+	private @JsonFormat(pattern = "yyyy-MM-dd HH:mm") Date startTime;
 	
-	private Date endTime;
+	private @JsonFormat(pattern = "yyyy-MM-dd HH:mm") Date endTime;
 	/**
 	 * 人数上限
 	 */
@@ -83,13 +89,13 @@ public class Activity extends BaseEntity{
 	 */
 	private Integer likeNums;
 	
-	private Date creatTime;
+	private @JsonFormat(pattern = "yyyy-MM-dd HH:mm") Date creatTime;
 	
-	private Date modifyTime;
+	private @JsonFormat(pattern = "yyyy-MM-dd HH:mm") @JsonIgnore Date modifyTime;
 	
-	private String commentId;
+	private @ColumnType(typeHandler=StringArrayTypeHandler.class) String[] commentId;
 	
-	private String donationId;
+	private @ColumnType(typeHandler=StringArrayTypeHandler.class) String[] donationId;
 	
 
 }

@@ -31,7 +31,7 @@ public class ActivityController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value="/",method=RequestMethod.POST)
+	@RequestMapping(method=RequestMethod.POST)
 	//@PreAuthorize("hasAuthority('ADMIN:ALL')")
 	public ResponseEntity<?> insertActivity(@RequestBody Activity activity,Authentication authentication){
 		
@@ -39,10 +39,20 @@ public class ActivityController {
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new ActivityErrorBuilder(ActivityErrorBuilder.Error_Activity_Nopointed, "活动为空!").build());
 		}
 		
+		activity.setCommentId(new String[]{"asd"});
+		
 		if(activityService.insertActivity(activity)){
 			return ResponseEntity.created(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(ActivityController.class).findActivity(activity.getId())).toUri()).build();
 		}
 		return ResponseEntity.status(HttpStatus.CREATED).body(new ActivityErrorBuilder(ActivityErrorBuilder.Error_Activity_InsertFailure, "活动创建失败！").build());
 		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="",method=RequestMethod.DELETE)
+	public ResponseEntity<?> deleteActivity(@RequestBody Activity activity,String id){
+		
+		
+		return null;
 	}
 }

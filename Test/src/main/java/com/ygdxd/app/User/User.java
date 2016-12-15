@@ -11,7 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ygdxd.mybatis.BaseEntity;
-import com.ygdxd.mybatis.typeHanler.StringAraayTypeHandler;
+import com.ygdxd.mybatis.typeHanler.StringArrayTypeHandler;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -59,7 +59,7 @@ public class User extends BaseEntity{
 	
 	private String email;
 	
-	private @JsonIgnore @ColumnType(typeHandler=StringAraayTypeHandler.class) String[] permissions;
+	private @JsonIgnore @ColumnType(typeHandler=StringArrayTypeHandler.class) String[] permissions;
 	
 	
 

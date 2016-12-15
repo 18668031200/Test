@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
-public class StringAraayTypeHandler extends BaseTypeHandler<String[]>{
+public class StringArrayTypeHandler extends BaseTypeHandler<String[]>{
 
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, String[] parameter, JdbcType jdbcType)
